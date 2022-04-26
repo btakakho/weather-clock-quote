@@ -1,0 +1,127 @@
+* {
+  user-select: none;
+}
+
+html,
+body,
+#root,
+.app,
+.background {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #fff;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.quote {
+  max-width: 72ch;
+}
+
+.quote .content {
+  font-size: 26px;
+  position: relative;
+  display: inline-block;
+  word-break: break-word;
+  hyphens: auto;
+  text-align: justify;
+}
+
+.quote .author {
+  font-weight: 500;
+  margin-top: 8px;
+  font-size: 18px;
+  opacity: 0.9;
+}
+
+.quote .refresh {
+  position: absolute;
+  right: -40px;
+  top: 4px;
+  opacity: 0.6;
+  cursor: pointer;
+  transition: opacity 200ms, transform 500ms;
+  transform-origin: center;
+}
+
+.quote .refresh:hover {
+  opacity: 1;
+  transform: rotate(360deg);
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: -1;
+  filter: brightness(0.6);
+  background-size: cover;
+}
+
+.app {
+  display: grid;
+  padding: 0 80px;
+  grid-template-rows: 1.2fr 2fr;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.app-quote {
+  padding: 80px 0;
+}
+
+.app-time {
+  display: flex;
+  align-items: center;
+  align-self: start;
+}
+
+.app-weather {
+  margin-left: 32px;
+}
+
+.time {
+  margin-left: 32px;
+}
+
+.time .caption {
+  font-size: 20px;
+}
+
+.time .counter {
+  margin-top: 8px;
+  font-size: 20px;
+}
+
+.time .city {
+  text-transform: uppercase;
+  font-size: 48px;
+  letter-spacing: 4px;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.weather-widget {
+  margin-left: 32px;
+  text-align: center;
+}
+
+.weather-widget .icon {
+  line-height: 1;
+}
+
+.weather-widget .description {
+  font-size: 20px;
+}
