@@ -7,5 +7,5 @@
 - [ ] background matches the weather and time of day
 - [ ] make cool preloader
 - [ ] use fancy css preprocessor
-- [ ] ci/cd
+- [x] ci/cd
 - [ ] refactoring
