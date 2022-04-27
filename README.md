@@ -2,7 +2,7 @@
 
 ## Todo
 
-- [ ] day/night detection
+- [x] day/night detection
 - [ ] mobile layout
 - [ ] background matches the weather and time of day
 - [ ] make cool preloader
