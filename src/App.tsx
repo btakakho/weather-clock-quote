@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import { getGeoByIP, IGeoIP } from './api/geo'
 import { getRandomQoute, IQuote } from './api/quotes'
 import { getWeather, IWeatherData, IWeatherField } from './api/weather'
@@ -6,8 +6,10 @@ import { Background, WeatherEnum } from './components/Background'
 import { Quote } from './components/Quote'
 import { Time } from './components/Time'
 import { WeatherWidget } from './components/WeatherWidget'
+import { DayTimeContext } from './context'
 
 function App() {
+  const dayTime = useContext(DayTimeContext)
   const [isLoading, setLoading] = useState<boolean>(true)
   const [currentWeather, setWeather] = useState<any>()
   const [quote, setQuote] = useState<IQuote>()
@@ -75,7 +77,7 @@ function App() {
         <div style={{ color: 'black' }}>Loading...</div>
       ) : (
         <>
-          <Background daytime={0} weather={currentWeather} />
+          <Background daytime={dayTime} weather={currentWeather} />
           <div className="app">
             {quote
               ? (
