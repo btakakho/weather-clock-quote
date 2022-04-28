@@ -18,6 +18,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #fff;
+  background-color: #151515;
 }
 
 code {
@@ -30,19 +31,29 @@ code {
 }
 
 .quote .content {
-  font-size: 26px;
+  font-size: 16px;
   position: relative;
   display: inline-block;
   word-break: break-word;
   hyphens: auto;
   text-align: justify;
 }
+@media screen and (min-width: 768px) {
+  .quote .content {
+    font-size: 26px;
+  }
+}
 
 .quote .author {
   font-weight: 500;
   margin-top: 8px;
-  font-size: 18px;
+  font-size: 12px;
   opacity: 0.9;
+}
+@media screen and (min-width: 768px) {
+  .quote .author {
+    font-size: 18px;
+  }
 }
 
 .quote .refresh {
@@ -72,14 +83,24 @@ code {
 
 .app {
   display: grid;
-  padding: 0 80px;
+  padding: 0 16px;
   grid-template-rows: 1.2fr 2fr;
   max-width: 1440px;
   margin: 0 auto;
 }
+@media screen and (min-width: 768px) {
+  .app {
+    padding: 0 80px;
+  }
+}
 
 .app-quote {
-  padding: 80px 0;
+  padding: 20px 0;
+}
+@media screen and (min-width: 768px) {
+  .app-quote {
+    padding: 80px 0;
+  }
 }
 
 .app-time {
@@ -93,7 +114,12 @@ code {
 }
 
 .time {
-  margin-left: 32px;
+  margin-left: 16px;
+}
+@media screen and (min-width: 768px) {
+  .time {
+    margin-left: 32px;
+  }
 }
 
 .time .caption {
@@ -102,15 +128,25 @@ code {
 
 .time .counter {
   margin-top: 8px;
-  font-size: 20px;
+  font-size: 16px;
+}
+@media screen and (min-width: 768px) {
+  .time {
+    font-size: 20px;
+  }
 }
 
 .time .city {
   text-transform: uppercase;
-  font-size: 48px;
+  font-size: 18px;
   letter-spacing: 4px;
   font-weight: bold;
   line-height: 1;
+}
+@media screen and (min-width: 768px) {
+  .time .city {
+    font-size: 48px;
+  }
 }
 
 .weather-widget {
@@ -124,4 +160,15 @@ code {
 
 .weather-widget .description {
   font-size: 20px;
+}
+
+.temperature {
+  font-size: 36px;
+  font-weight: bold;
+  line-height: 1;
+}
+@media screen and (min-width: 768px) {
+  .temperature {
+    font-size: 120px;
+  }
 }

@@ -5,7 +5,8 @@
 - [x] day/night detection
 - [ ] mobile layout
 - [ ] background matches the weather and time of day
-- [ ] make cool preloader
+- [x] make cool preloader
 - [ ] use fancy css preprocessor
+- [ ] add favicon
 - [x] ci/cd
 - [ ] refactoring

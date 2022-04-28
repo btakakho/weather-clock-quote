@@ -3,6 +3,7 @@ import { getGeoByIP, IGeoIP } from './api/geo'
 import { getRandomQoute, IQuote } from './api/quotes'
 import { getWeather, IWeatherData, IWeatherField } from './api/weather'
 import { Background, WeatherEnum } from './components/Background'
+import { Preloader } from './components/Preloader'
 import { Quote } from './components/Quote'
 import { Time } from './components/Time'
 import { WeatherWidget } from './components/WeatherWidget'
@@ -24,7 +25,10 @@ function App() {
   useEffect(() => {
     (async () => {
       const { data: geoData } = await getGeoByIP()
-      const { data: weatherData } = await getWeather(geoData.latitude, geoData.longitude)
+      const { data: weatherData } = await getWeather(
+        geoData.latitude,
+        geoData.longitude
+      )
       const { data: randomQuote } = await getRandomQoute()
 
       setGeoData(geoData)
@@ -73,32 +77,39 @@ function App() {
 
   return (
     <>
-      {isLoading ? (
-        <div style={{ color: 'black' }}>Loading...</div>
-      ) : (
-        <>
-          <Background daytime={dayTime} weather={currentWeather} />
-          <div className="app">
-            {quote
-              ? (
-                <div className="app-quote">
-                  <Quote author={quote.author} content={quote.content} handleClick={refreshQoute} />
-                </div>
-              )
-              : null}
-
-            <div className="app-time">
-              <div>
-                <div style={{ fontSize: '120px', fontWeight: 'bold', lineHeight: 1 }}>
-                  {Math.round(weatherData?.main.temp || 0)}&deg;
-                </div>
-              </div>
-              {geoData && <Time city={geoData.city} />}
-              {weatherData && <WeatherWidget weatherId={currentWeather} description={weatherData?.weather[0].main} />}
+      <Preloader active={isLoading} />
+      {!isLoading && <div>
+        <Background daytime={dayTime} weather={currentWeather} />
+        <div className="app">
+          {quote ? (
+            <div className="app-quote">
+              <Quote
+                author={quote.author}
+                content={quote.content}
+                handleClick={refreshQoute}
+              />
             </div>
+          ) : null}
+
+          <div className="app-time">
+            <div className="temperature-wrapper">
+              <div
+                className='temperature'
+              >
+                {Math.round(weatherData?.main.temp || 0)}&deg;
+              </div>
+            </div>
+            {geoData && <Time city={geoData.city} />}
+            {weatherData && (
+              <WeatherWidget
+                weatherId={currentWeather}
+                description={weatherData?.weather[0].main}
+              />
+            )}
           </div>
-        </>
-      )}
+        </div>
+      </div>
+      }
     </>
   )
 }
