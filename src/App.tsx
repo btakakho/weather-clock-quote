@@ -78,8 +78,8 @@ function App() {
   return (
     <>
       <Preloader active={isLoading} />
-      {!isLoading && <div>
-        <Background daytime={dayTime} weather={currentWeather} />
+      {!isLoading && <Background daytime={dayTime} weather={currentWeather} />}
+      {!isLoading &&
         <div className="app">
           {quote ? (
             <div className="app-quote">
@@ -108,7 +108,6 @@ function App() {
             )}
           </div>
         </div>
-      </div>
       }
     </>
   )
